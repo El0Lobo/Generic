@@ -1,0 +1,221 @@
+:root {
+  --bg: #222227;
+  --text: #f8f8fa;
+  --accent: #ff2b6d; /* hot pink */
+  --accent2: #30f7e5; /* neon blue-green */
+  --tag: #fcf33c; /* neon yellow */
+  --card: rgba(28, 28, 32, 0.93);
+  --spray: rgba(255, 43, 109, 0.23);
+  --spray2: rgba(48, 247, 229, 0.18);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Permanent Marker', 'Bangers', 'Segoe UI', sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  background-image:
+    repeating-linear-gradient(120deg, #25262b 0 18px, transparent 19px 35px),
+    linear-gradient(145deg, #23242c, #3b3740 80%);
+  color: var(--text);
+  min-height: 100vh;
+  position: relative;
+  /* Optional: subtle noise/grain overlay for urban texture (needs image or SVG) */
+}
+
+#page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1;
+}
+
+/* Header/Nav/Footer: Like tags sprayed on a wall */
+header, nav, footer {
+  text-align: center;
+  padding: 1.5rem 1rem 1.1rem 1rem;
+  background: none;
+  position: relative;
+  border: none;
+  box-shadow: none;
+  z-index: 1;
+}
+
+header {
+  font-family: 'Bangers', 'Permanent Marker', cursive, sans-serif;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-shadow:
+    0 2px 12px var(--accent2),
+    1px 1px 0 #222,
+    0 0 4px #fff4;
+  background: linear-gradient(90deg, var(--spray) 20%, transparent 100%);
+  border-bottom: 3px solid var(--accent2);
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 3.5rem;
+  font-family: 'Permanent Marker', 'Bangers', cursive, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 0.2em;
+  letter-spacing: 2px;
+  text-shadow: 0 3px 18px var(--accent2), 2px 2px 0 #111;
+}
+
+nav {
+  margin-bottom: 1.3rem;
+  background: linear-gradient(90deg, var(--spray2) 40%, transparent 100%);
+  border-bottom: 2px dashed var(--tag);
+  font-family: 'Bangers', 'Permanent Marker', cursive;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+}
+
+nav a {
+  margin: 0 1.4rem;
+  text-decoration: none;
+  color: var(--accent2);
+  text-shadow: 0 2px 8px var(--accent), 1px 1px 0 #111;
+  padding: 0.3em 0.6em;
+  border-radius: 8px;
+  background: transparent;
+  position: relative;
+  transition: background 0.3s, color 0.2s, text-shadow 0.2s;
+}
+
+nav a:hover, nav a:focus {
+  color: var(--tag);
+  background: var(--accent);
+  text-shadow: 0 0 12px var(--accent2), 0 0 3px #fff9;
+  outline: none;
+}
+
+/* Main Section */
+main {
+  padding: 2.5rem 2rem 2rem 2rem;
+  z-index: 2;
+}
+
+/* Urban "Card" Style — like painted plywood */
+.card {
+  background: var(--card);
+  border: 2.5px solid var(--accent);
+  border-radius: 22px 6px 22px 6px/6px 22px 6px 22px;
+  box-shadow:
+    0 0 40px 0 var(--spray2),
+    0 2px 14px 0 #2228;
+  padding: 2.2rem 1.5rem;
+  margin-bottom: 2.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.32s cubic-bezier(.68,-0.55,.27,1.55), transform 0.18s;
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  left: -20px; top: -20px; right: -20px; bottom: -20px;
+  background: radial-gradient(ellipse at 60% 10%, var(--spray) 0 44%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.46;
+}
+
+.card:hover {
+  box-shadow:
+    0 0 55px 2px var(--accent),
+    0 0 18px 0 var(--tag),
+    0 2px 24px 0 #000d;
+  transform: rotate(-1.5deg) scale(1.025);
+}
+
+.card h2, .card h3 {
+  font-family: 'Permanent Marker', cursive;
+  color: var(--tag);
+  margin-bottom: 1em;
+  text-shadow: 0 2px 14px var(--accent2), 1px 1px 0 #222;
+}
+
+.button {
+  background: var(--accent2);
+  border: 2px solid var(--tag);
+  color: #181818;
+  font-family: 'Bangers', 'Segoe UI', sans-serif;
+  font-size: 1.15rem;
+  padding: 0.6em 1.6em;
+  border-radius: 22px 5px 22px 5px/5px 22px 5px 22px;
+  cursor: pointer;
+  margin: 0.8em 0;
+  box-shadow: 0 0 16px 1px var(--accent2), 0 2px 7px #0008;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.button:hover, .button:focus {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 30px 6px var(--accent), 0 2px 11px #000b;
+  outline: none;
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.intro, .features, .cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Features in a spray grid! */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2.2rem auto;
+  padding: 1.2rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.features .card {
+  border: 2.5px dashed var(--tag);
+  background: linear-gradient(130deg, var(--card) 88%, var(--spray2) 100%);
+}
+
+footer {
+  background: linear-gradient(90deg, var(--spray2) 40%, transparent 100%);
+  color: var(--tag);
+  font-family: 'Bangers', 'Permanent Marker', cursive;
+  font-size: 1.05rem;
+  text-shadow: 0 2px 8px var(--accent2), 1px 1px 0 #222;
+  border-top: 2px solid var(--accent2);
+  margin-top: auto;
+  padding-bottom: 2rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #18181c;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent2);
+  border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  header h1 { font-size: 2.1rem; }
+  .features { grid-template-columns: 1fr; }
+  .card { padding: 1.1rem 0.7rem; }
+  main { padding: 1rem; }
+}
