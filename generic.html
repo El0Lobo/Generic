@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,16 +8,48 @@
   <link id="theme-style" rel="stylesheet" href="static/css/minimalist.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Glass+Antiqua&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css" />
+
+<!-- Pickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
   <script>
     function changeTheme(value) {
       document.getElementById('theme-style').setAttribute('href', 'static/css/' + value);
     }
   </script>
 </head>
+<style>
+  #color-picker-container, #font-color-picker-container {
+  display: inline-block;
+  z-index: 9999;
+}
+  .image-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 300px;
+  }
+
+  .image-options button {
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+
+  .image-options button.selected {
+    border-color: white;
+  }
+</style>
+
 <body>
   <div id="page-wrapper">
-    <header>
-      <h1>Generic Page Template</h1>
+    <header style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; justify-content: center;">
+      <h1 style="flex: 1 100%; text-align: center;">Generic Page Template</h1>
+
       <label for="theme-switcher">Theme:</label>
       <select id="theme-switcher" onchange="changeTheme(this.value)">
         <option value="minimalist.css">Minimalist</option>
@@ -27,10 +60,58 @@
         <option value="70s.css">70s</option>
         <option value="80s.css">80s</option>
         <option value="cyberpunk.css">Cyberpunk</option>
+        <option value="posada.css">Posada</option>
         <option value="weird-tales.css">Weird Tales</option>
         <option value="glassmorphism.css">Glassmorphism</option>
         <option value="type.css">Typewriter</option>
         <option value="editorial-magazine.css">Editorial Magazine</option>
+      </select>
+
+      <label for="texture-switcher">Texture:</label>
+      <select id="texture-switcher">
+        <option value="">None</option>
+        <option value="always-grey.png">Always Grey</option>
+        <option value="arabesque.png">Arabesque</option>
+        <option value="asfalt-dark.png">Asfalt Dark</option>
+        <option value="asfalt-light.png">Asfalt Light</option>
+        <option value="assault.png">Assault</option>
+        <option value="black-felt.png">Black Felt</option>
+        <option value="black-linen.png">Black Linen</option>
+        <option value="black-orchid.png">Black Orchid</option>
+        <option value="brick-wall.png">Brick Wall</option>
+        <option value="brick-wall-dark.png">Brick Wall Dark</option>
+        <option value="brushed-alum.png">Brushed Alum</option>
+        <option value="brushed-alum-dark.png">Brushed Alum Dark</option>
+        <option value="cardboard.png">Cardboard</option>
+        <option value="cardboard-flat.png">Cardboard Flat</option>
+        <option value="classy-fabric.png">Classy Fabric</option>
+        <option value="concrete-wall.png">Concrete Wall</option>
+        <option value="concrete-wall-2.png">Concrete Wall 2</option>
+        <option value="concrete-wall-3.png">Concrete Wall 3</option>
+        <option value="crisp-paper-ruffles.png">Crisp Paper Ruffles</option>
+        <option value="dark-leather.png">Dark Leather</option>
+        <option value="dark-wood.png">Dark Wood</option>
+        <option value="diagmonds.png">Diagmonds</option>
+        <option value="diagmonds-light.png">Diagmonds Light</option>
+        <option value="dust.png">Dust</option>
+        <option value="flowers.png">Flowers</option>
+        <option value="gplay.png">GPlay</option>
+        <option value="grunge-wall.png">Grunge Wall</option>
+        <option value="leather.png">Leather</option>
+        <option value="skulls.png">Skulls</option>
+        <option value="use-your-illusion.png">Use Your Illusion</option>
+        <option value="wall-4-light.png">Wall 4 Light</option>
+        <option value="washi.png">Washi</option>
+      </select>
+
+      <label for="color-picker-container">Background Color:</label>
+      <div id="color-picker-container"></div>
+      <label>Font Color:</label>
+      <div id="font-color-picker-container"></div>
+      <label for="image-bg-dropdown">Image:</label>
+      <select id="image-bg-dropdown">
+        <option value="">None</option>
+        <!-- Filled via JS -->
       </select>
     </header>
     <nav>
@@ -48,17 +129,20 @@
 
       <section class="features">
         <div class="card">
-          <img src="https://i0.wp.com/wherecreativityworks.com/wp-content/uploads/2021/01/download.png?w=259&ssl=1" alt="Feature Image" />
+          <img src="https://i0.wp.com/wherecreativityworks.com/wp-content/uploads/2021/01/download.png?w=259&ssl=1"
+            alt="Feature Image" />
           <h2>Feature One</h2>
           <button class="button">Learn More</button>
         </div>
         <div class="card">
-          <img src="https://i0.wp.com/wherecreativityworks.com/wp-content/uploads/2021/01/download.png?w=259&ssl=1" alt="Feature Image" />
+          <img src="https://i0.wp.com/wherecreativityworks.com/wp-content/uploads/2021/01/download.png?w=259&ssl=1"
+            alt="Feature Image" />
           <h2>Feature Two</h2>
           <button class="button">Learn More</button>
         </div>
         <div class="card">
-          <img src="https://i0.wp.com/wherecreativityworks.com/wp-content/uploads/2021/01/download.png?w=259&ssl=1" alt="Feature Image" />
+          <img src="https://i0.wp.com/wherecreativityworks.com/wp-content/uploads/2021/01/download.png?w=259&ssl=1"
+            alt="Feature Image" />
           <h2>Feature Three</h2>
           <button class="button">Learn More</button>
         </div>
@@ -72,6 +156,15 @@
     <footer>
       &copy; 2025 Generic Website. All Rights Reserved.
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <script type="module" src="/static/js/color-picker.js" defer></script>
+    <script type="module" src="/static/js/background.js" defer></script>
+    <script type="module" src="/static/js/texture-overlay.js" defer></script>
+    <script type="module" src="/static/js/image-bg-selector.js"></script>
+    <script src="/static/js/color-picker.js" defer></script>
+
   </div>
+
 </body>
+
 </html>
