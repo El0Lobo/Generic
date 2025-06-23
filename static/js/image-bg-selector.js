@@ -36,7 +36,7 @@ function initImageDropdown() {
     if (!selected) {
       document.body.style.backgroundImage = '';
     } else {
-      document.body.style.backgroundImage = `url('/static/images/${selected}')`;
+      document.body.style.backgroundImage = `url('/Generic/static/images/${selected}')`;
       document.body.style.backgroundSize = 'cover';
       document.body.style.backgroundPosition = 'center';
       document.body.style.backgroundRepeat = 'no-repeat';
