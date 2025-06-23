@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generic Page Template</title>
+  <link id="theme-style" rel="stylesheet" href="static/css/minimalist.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Glass+Antiqua&display=swap" rel="stylesheet">
+  <script>
+    function changeTheme(value) {
+      document.getElementById('theme-style').setAttribute('href', 'static/css/' + value);
+    }
+  </script>
+</head>
+<body>
+  <div id="page-wrapper">
+    <header>
+      <h1>Generic Page Template</h1>
+      <label for="theme-switcher">Theme:</label>
+      <select id="theme-switcher" onchange="changeTheme(this.value)">
+        <option value="minimalist.css">Minimalist</option>
+        <option value="neo-brutalist.css">Neo-Brutalist</option>
+        <option value="y2k.css">Y2K</option>
+        <option value="modern.css">Modern</option>
+        <option value="grungy.css">Grungy</option>
+        <option value="70s.css">70s</option>
+        <option value="80s.css">80s</option>
+        <option value="3d-table.css">3D Table</option>
+        <option value="cyberpunk.css">Cyberpunk</option>
+        <option value="glassmorphism.css">Glassmorphism</option>
+        <option value="editorial-magazine.css">Editorial Magazine</option>
+      </select>
+    </header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </nav>
+    <main>
+      <section class="intro">
+        <h2>Welcome to Our Website</h2>
+        <p>This is a clean, modular layout you can customize with different styles.</p>
+      </section>
+
+      <section class="features">
+        <div class="card">
+          <img src="https://i0.wp.com/wherecreativityworks.com/wp-content/uploads/2021/01/download.png?w=259&ssl=1" alt="Feature Image" />
+          <h2>Feature One</h2>
+          <button class="button">Learn More</button>
+        </div>
+        <div class="card">
+          <img src="https://i0.wp.com/wherecreativityworks.com/wp-content/uploads/2021/01/download.png?w=259&ssl=1" alt="Feature Image" />
+          <h2>Feature Two</h2>
+          <button class="button">Learn More</button>
+        </div>
+        <div class="card">
+          <img src="https://i0.wp.com/wherecreativityworks.com/wp-content/uploads/2021/01/download.png?w=259&ssl=1" alt="Feature Image" />
+          <h2>Feature Three</h2>
+          <button class="button">Learn More</button>
+        </div>
+      </section>
+
+      <section class="cta">
+        <h2>Ready to Get Started?</h2>
+        <button class="button">Sign Up Now</button>
+      </section>
+    </main>
+    <footer>
+      &copy; 2025 Generic Website. All Rights Reserved.
+    </footer>
+  </div>
+</body>
+</html>

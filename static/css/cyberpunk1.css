@@ -1,0 +1,112 @@
+:root {
+  --bg: #0e0e0e;
+  --text: #00f0ff;
+  --accent: #ff00aa;
+  --border: #00f0ff;
+  --pink: #ff00aa;
+  --blue: #00f0ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+#page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1;
+}
+
+header, nav, footer {
+  text-align: center;
+  padding: 1rem;
+  background: #111;
+  color: var(--text);
+  border-bottom: 2px solid var(--pink);
+  text-shadow: 0 0 5px var(--blue);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px var(--blue), 0 0 15px var(--pink);
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--pink);
+}
+
+main {
+  padding: 2rem;
+}
+
+.button {
+  background: var(--pink);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  border: none;
+  box-shadow: 0 0 10px var(--pink);
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: var(--blue);
+  box-shadow: 0 0 15px var(--blue);
+}
+
+.intro, .features, .cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  padding: 1rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  background: #111;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  box-shadow: 0 0 10px var(--pink);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--blue);
+}
+
+footer {
+  background: #111;
+  color: var(--text);
+  border-top: 2px solid var(--blue);
+  margin-top: auto;
+}

@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&family=Pathway+Extreme&display=swap');
+
+:root {
+  --bg: #fff8e1;
+  --text: #3e2723;
+  --accent1: #ff6f00;
+  --accent2: #f4511e;
+  --accent3: #6d4c41;
+  --border: #bcaaa4;
+  --stripe1: #ffe0b2;
+  --stripe2: #fff3e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Pathway Extreme', sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--stripe1),
+    var(--stripe1) 20px,
+    var(--stripe2) 20px,
+    var(--stripe2) 40px
+  );
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page wrapper keeps layout aligned */
+#page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1;
+}
+
+/* Header and Navigation */
+header, nav, footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--accent1);
+  color: #fff;
+  border-bottom: 4px solid var(--accent3);
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Apply groovy type for h1 too */
+header h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.5rem;
+  color: #fffde7;
+  text-shadow: 2px 2px var(--accent3);
+}
+
+/* Nav links */
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #fffde7;
+  font-weight: bold;
+}
+
+/* Main content */
+main {
+  padding: 2rem;
+}
+
+/* Buttons */
+.button {
+  background: var(--accent2);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 24px;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background: var(--accent3);
+  transform: scale(1.05);
+}
+
+/* Layout sections */
+.intro, .features, .cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Feature grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  padding: 1rem;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Cards */
+.card {
+  background: #fff3e0;
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 4px 4px var(--accent3);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+  background: var(--accent1);
+  color: #fff;
+  border-top: 4px solid var(--accent3);
+  margin-top: auto;
+  font-size: 0.9rem;
+}

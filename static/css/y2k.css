@@ -1,0 +1,158 @@
+:root {
+  --pink: #ff3cbf;
+  --blue: #00e0ff;
+  --yellow: #fff700;
+  --black: #111;
+  --white: #fdfdfd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  color: var(--black);
+  overflow-x: hidden;
+}
+
+header {
+  background-color: var(--yellow);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  text-shadow: 2px 2px var(--pink);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: var(--blue);
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--black);
+  background: var(--pink);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 2px 2px var(--yellow);
+  transition: transform 0.2s ease;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+}
+
+main {
+  padding: 2rem;
+}
+
+.card {
+  background: var(--white);
+  border: 4px dashed var(--blue);
+  border-radius: 20px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 6px 6px var(--pink);
+}
+
+.card img {
+  width: 100%;
+  border: 6px solid var(--yellow);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  color: var(--pink);
+}
+
+.button {
+  background: var(--blue);
+  color: var(--black);
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px var(--pink);
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: var(--yellow);
+}
+
+footer {
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+.intro, .features, .cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.intro h2, .cta h2 {
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  max-width: 600px;
+}
+
+.intro, .features, .cta {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.intro h2, .cta h2 {
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+}
