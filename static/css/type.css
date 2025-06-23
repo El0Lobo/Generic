@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+:root {
+  --bg: #fdf6e3;
+  --text: #222222;
+  --accent: #c33;
+  --border: #999;
+  --paper-lines: rgba(0,0,0,0.03);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Special Elite', monospace;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg) url('/static/textures/typewriter-paper.png');
+  background-size: cover;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout shell */
+#page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1;
+  padding: 1rem;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Header and Nav */
+header, nav, footer {
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 2px dashed var(--border);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 4px 4px rgba(0,0,0,0.05);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-shadow: 1px 1px rgba(0,0,0,0.1);
+}
+
+/* Navigation links */
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Main layout */
+main {
+  padding: 2rem;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--paper-lines) 0,
+    var(--paper-lines) 1px,
+    transparent 1px,
+    transparent 2rem
+  );
+  flex: 1;
+}
+
+/* Cards */
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px dotted var(--border);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+}
+
+/* Typewriter-style button */
+.button {
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--accent);
+}
+
+/* Footer */
+footer {
+  border-top: 2px dashed var(--border);
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: #444;
+}
