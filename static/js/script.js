@@ -1,5 +1,5 @@
 // === GLOBAL ===
-const lowpolyThemes = ["glassmorphism", "neo-brutalist", "cyberpunk"];
+const lowpolyThemes = ["glassmorphism"];
 let lowpolyScript = null;
 const textureFolder = "static/images/textures/";
 const overlayId = "texture-overlay";
