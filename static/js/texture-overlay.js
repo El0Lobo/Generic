@@ -1,4 +1,4 @@
-const textureFolder = "/static/images/textures/";
+const textureFolder = "Generic/static/images/textures/";
 const overlayId = "texture-overlay";
 
 function setTexture(filename) {

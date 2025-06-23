@@ -19,7 +19,7 @@ function loadLowpoly() {
 
   lowpolyScript = document.createElement("script");
   lowpolyScript.type = "module";
-  lowpolyScript.src = "Generic/static/js/lowpoly-bg.js";
+  lowpolyScript.src = "/static/js/lowpoly-bg.js";
   lowpolyScript.id = "lowpoly-script";
 
   lowpolyScript.onload = () => {
