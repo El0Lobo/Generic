@@ -33,7 +33,7 @@ body {
     repeating-linear-gradient(120deg, #25262b 0 18px, transparent 19px 35px),
     linear-gradient(145deg, #23242c, #3b3740 80%);
   color: var(--text);
-  min-height: 100vh;
+  min-height: 100%;
   position: relative;
 }
 
