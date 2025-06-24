@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { file: "chalk.png", label: "Chalkboard" },
     { file: "landscape01.png", label: "Landscape 01" },
     { file: "landscape02.png", label: "Landscape 02" },
-    { file: "landscape03.png", label: "Landscape 03" },
+    { file: "landscape03.png", label: "Red Brick" },
     { file: "landscape05.png", label: "Landscape 05" },
     { file: "landscape06.png", label: "Landscape 06" },
     { file: "landscape07.png", label: "Landscape 07" },
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.backgroundImage = "";
       } else {
         document.body.style.backgroundImage = `url('static/images/${selected}')`;
-        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundSize = "auto";
         document.body.style.backgroundPosition = "center";
         document.body.style.backgroundRepeat = "no-repeat";
       }
