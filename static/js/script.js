@@ -166,13 +166,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const selected = imageSelect.value;
       if (!selected) {
         document.body.style.backgroundImage = "";
+        document.body.style.backgroundSize = "";
+        document.body.style.backgroundPosition = "";
+        document.body.style.backgroundRepeat = "";
+        document.body.style.backgroundAttachment = "";
       } else {
         document.body.style.backgroundImage = `url('static/images/${selected}')`;
         document.body.style.backgroundSize = "cover";
         document.body.style.backgroundPosition = "center";
         document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed"; // <--- Add this!
       }
     });
+
   }
 
   // === Texture Selector ===
