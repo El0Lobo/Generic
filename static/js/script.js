@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.backgroundImage = "";
       } else {
         document.body.style.backgroundImage = `url('static/images/${selected}')`;
-        document.body.style.backgroundSize = "stretch";
+        document.body.style.backgroundSize = "cover";
         document.body.style.backgroundPosition = "center";
         document.body.style.backgroundRepeat = "no-repeat";
       }

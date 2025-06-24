@@ -17,6 +17,7 @@ body {
   background: linear-gradient(135deg, var(--pink), var(--blue));
   color: var(--black);
   overflow-x: hidden;
+  height: 100%;
 }
 
 header {
