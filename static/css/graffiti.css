@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Digita';
+  src: url('/static/fonts/Digita.ttf') format('truetype');
+  font-display: swap;
+}
+
 :root {
   --bg: #222227;
   --text: #f8f8fa;
@@ -9,6 +15,7 @@
   --spray2: rgba(48, 247, 229, 0.18);
 }
 
+/* Global font: graffiti/scribble look */
 * {
   margin: 0;
   padding: 0;
@@ -28,7 +35,6 @@ body {
   color: var(--text);
   min-height: 100vh;
   position: relative;
-  /* Optional: subtle noise/grain overlay for urban texture (needs image or SVG) */
 }
 
 #page-wrapper {
@@ -38,19 +44,9 @@ body {
   flex: 1;
 }
 
-/* Header/Nav/Footer: Like tags sprayed on a wall */
-header, nav, footer {
-  text-align: center;
-  padding: 1.5rem 1rem 1.1rem 1rem;
-  background: none;
-  position: relative;
-  border: none;
-  box-shadow: none;
-  z-index: 1;
-}
-
+/* HEADER: graffiti, digita font, strong spray accent, extra bottom for drip img */
 header {
-  font-family: 'Bangers', 'Permanent Marker', cursive, sans-serif;
+  font-family: 'Digita', Arial, sans-serif !important;
   letter-spacing: 2px;
   color: var(--accent);
   text-shadow:
@@ -60,17 +56,31 @@ header {
   background: linear-gradient(90deg, var(--spray) 20%, transparent 100%);
   border-bottom: 3px solid var(--accent2);
   margin-bottom: 1rem;
+  padding-bottom: 1.2rem; /* space for drip */
+  position: relative;
+  z-index: 2;
 }
-
 header h1 {
   font-size: 3.5rem;
-  font-family: 'Permanent Marker', 'Bangers', cursive, sans-serif;
+  font-family: 'Digita', 'Permanent Marker', 'Bangers', cursive, sans-serif;
   text-transform: uppercase;
   margin-bottom: 0.2em;
   letter-spacing: 2px;
   text-shadow: 0 3px 18px var(--accent2), 2px 2px 0 #111;
 }
 
+/* Drip image injected by JS will always be full width, responsive, and visible */
+#graffiti-drip-img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto -2rem auto;
+  pointer-events: none;
+  position: relative;
+  z-index: 10;
+}
+
+/* NAV: marker style, neon, dashed bottom */
 nav {
   margin-bottom: 1.3rem;
   background: linear-gradient(90deg, var(--spray2) 40%, transparent 100%);
@@ -78,8 +88,9 @@ nav {
   font-family: 'Bangers', 'Permanent Marker', cursive;
   font-size: 1.25rem;
   letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
 }
-
 nav a {
   margin: 0 1.4rem;
   text-decoration: none;
@@ -91,7 +102,6 @@ nav a {
   position: relative;
   transition: background 0.3s, color 0.2s, text-shadow 0.2s;
 }
-
 nav a:hover, nav a:focus {
   color: var(--tag);
   background: var(--accent);
@@ -105,7 +115,7 @@ main {
   z-index: 2;
 }
 
-/* Urban "Card" Style — like painted plywood */
+/* Urban Card Style: like plywood, splatter effect, vibrant border */
 .card {
   background: var(--card);
   border: 2.5px solid var(--accent);
@@ -119,7 +129,6 @@ main {
   overflow: hidden;
   transition: box-shadow 0.32s cubic-bezier(.68,-0.55,.27,1.55), transform 0.18s;
 }
-
 .card:before {
   content: "";
   position: absolute;
@@ -129,7 +138,6 @@ main {
   z-index: 0;
   opacity: 0.46;
 }
-
 .card:hover {
   box-shadow:
     0 0 55px 2px var(--accent),
@@ -137,7 +145,6 @@ main {
     0 2px 24px 0 #000d;
   transform: rotate(-1.5deg) scale(1.025);
 }
-
 .card h2, .card h3 {
   font-family: 'Permanent Marker', cursive;
   color: var(--tag);
@@ -145,6 +152,7 @@ main {
   text-shadow: 0 2px 14px var(--accent2), 1px 1px 0 #222;
 }
 
+/* BUTTON graffiti style */
 .button {
   background: var(--accent2);
   border: 2px solid var(--tag);
@@ -158,7 +166,6 @@ main {
   box-shadow: 0 0 16px 1px var(--accent2), 0 2px 7px #0008;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
-
 .button:hover, .button:focus {
   background: var(--accent);
   color: #fff;
@@ -175,7 +182,7 @@ main {
   margin-bottom: 2rem;
 }
 
-/* Features in a spray grid! */
+/* Features: graffiti grid */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -187,12 +194,12 @@ main {
   text-align: center;
   justify-content: center;
 }
-
 .features .card {
   border: 2.5px dashed var(--tag);
   background: linear-gradient(130deg, var(--card) 88%, var(--spray2) 100%);
 }
 
+/* FOOTER graffiti style */
 footer {
   background: linear-gradient(90deg, var(--spray2) 40%, transparent 100%);
   color: var(--tag);
@@ -204,6 +211,7 @@ footer {
   padding-bottom: 2rem;
 }
 
+/* SCROLLBAR: graffiti accent */
 ::-webkit-scrollbar {
   width: 10px;
   background: #18181c;

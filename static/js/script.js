@@ -4,6 +4,87 @@ let lowpolyScript = null;
 const textureFolder = "static/images/textures/";
 const overlayId = "texture-overlay";
 
+// === GRAFFITI FX ===
+const graffitiDripId = "graffiti-drip-img";
+const graffitiAnimId = "graffiti-anim-canvas";
+
+// Inject graffiti drip image below header
+function injectGraffitiDrip() {
+  if (!document.getElementById(graffitiDripId)) {
+    const dripImg = document.createElement("img");
+    dripImg.id = graffitiDripId;
+    dripImg.src = "/static/images/drip.png"; // <-- your PNG drip location
+    dripImg.alt = "";
+    dripImg.style = "display:block; width:100%; max-width:900px; margin:0 auto; pointer-events:none; z-index:20; position:relative;";
+    // Place after header
+    const header = document.querySelector("header");
+    if (header) header.insertAdjacentElement("afterend", dripImg);
+  }
+}
+function removeGraffitiDrip() {
+  document.getElementById(graffitiDripId)?.remove();
+}
+
+// Inject animated graffiti spray canvas
+function injectGraffitiAnim() {
+  if (!document.getElementById(graffitiAnimId)) {
+    const canvas = document.createElement("canvas");
+    canvas.id = graffitiAnimId;
+    canvas.style = "position:fixed; pointer-events:none; z-index:9; top:0; left:0; width:100vw; height:100vh;";
+    document.body.appendChild(canvas);
+    startGraffitiSpray(canvas);
+  }
+}
+function removeGraffitiAnim() {
+  document.getElementById(graffitiAnimId)?.remove();
+}
+
+// Minimal animated spray mist (pure JS, no deps)
+function startGraffitiSpray(canvas) {
+  const ctx = canvas.getContext('2d');
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  let mist = [];
+  for (let i = 0; i < 28; i++) {
+    mist.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * 220 + 10,
+      r: Math.random() * 32 + 18,
+      color: Math.random() > 0.6 ? 'rgba(249,77,124,0.13)' : 'rgba(34,244,199,0.10)',
+      dx: (Math.random() - 0.5) * 1.2,
+      dy: Math.random() * 0.4 + 0.1,
+      dr: Math.random() * 0.07 - 0.03
+    });
+  }
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let m of mist) {
+      ctx.beginPath();
+      ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+      ctx.fillStyle = m.color;
+      ctx.filter = 'blur(1.2px)';
+      ctx.fill();
+      ctx.filter = 'none';
+      m.x += m.dx;
+      m.y += m.dy;
+      m.r += m.dr;
+      if (m.y > window.innerHeight || m.x < -40 || m.x > window.innerWidth + 40) {
+        m.x = Math.random() * window.innerWidth;
+        m.y = Math.random() * 140 + 10;
+        m.r = Math.random() * 22 + 12;
+      }
+    }
+    if (document.getElementById(graffitiAnimId)) {
+      requestAnimationFrame(draw);
+    }
+  }
+  draw();
+}
+
 // === INIT EVERYTHING ON DOMContentLoaded ===
 document.addEventListener("DOMContentLoaded", () => {
   // === Background Color Picker ===
@@ -106,7 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
   monitorTheme();
 });
 
-
 // === LOWPOLY SCRIPT HANDLER ===
 function getThemeName() {
   const href = document.getElementById("theme-style")?.href || "";
@@ -171,6 +251,7 @@ function removeLowpoly() {
   }
 }
 
+// === THEME HANDLER (LOWPOLY & GRAFFITI) ===
 function handleThemeChange() {
   const theme = getThemeName();
   if (!theme) {
@@ -181,12 +262,22 @@ function handleThemeChange() {
   if (lowpolyThemes.includes(theme)) {
     console.log(`[background.js] Theme "${theme}" supports lowpoly — enabling.`);
     loadLowpoly();
-  } else {
-    console.log(`[background.js] Theme "${theme}" does not use lowpoly — disabling.`);
+    removeGraffitiDrip();
+    removeGraffitiAnim();
+  } else if (theme === "graffiti") {
+    console.log(`[background.js] Theme "${theme}" enables graffiti effects.`);
     removeLowpoly();
+    injectGraffitiDrip();
+    injectGraffitiAnim();
+  } else {
+    console.log(`[background.js] Theme "${theme}" disables lowpoly and graffiti effects.`);
+    removeLowpoly();
+    removeGraffitiDrip();
+    removeGraffitiAnim();
   }
 }
 
+// === THEME MONITOR ===
 function monitorTheme() {
   const link = document.getElementById("theme-style");
   if (!link) {
